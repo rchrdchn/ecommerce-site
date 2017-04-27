@@ -1,103 +1,61 @@
-// 1) Create three objects with four properties using object literal notation. What is an "object literal"?
+// creating allTees array
+var allTees = new Array;
 
-// var person1 = {
-// 	firstName: "rich",
-// 	lastName: "chan",
-// 	location: "san francisco",
-// 	phone: "nexus"
-// 	}
-
-// var person2 = {
-// 	firstName: "rich",
-// 	lastName: "chan",
-// 	location: "san francisco",
-// 	phone: "nexus"	
-// }
-
-// var person3	= {
-// 	firstName: "rich",
-// 	lastName: "chan",
-// 	location: "san francisco",
-// 	phone: "nexus"
-// }
-
-// 2) Create the same three objects, with the same four properties, using a constructor function instead.
-
-// function familyMembers(firstName, lastName, location, phone) {
-// 	this.firstName = firstName,
-// 	this.lastName = lastName,
-// 	this.location = location,
-// 	this.phone = phone
-// }
-
-// 3) Using a constructor function, create an object with a method. Have that method multiply two numbers and return the product.
-
-// function FamilyMembers(firstName, lastName, location, phone) {
-// 	this.firstName = firstName,
-// 	this.lastName = lastName,
-// 	this.location = location,
-// 	this.phone = phone
-// }
-
-// var rich = new FamilyMembers("rich", "chan", "sf", "iphone");
-// var anthony = new FamilyMembers("anthone", "jose", "cali", "nexus");
-
-// for (i = 0; i < FamilyMembers.length; i++) {
-// 	console.log(i);
-// }
-
-// var adidas = {
-// 	model: "predator",
-// 	price: 90,
-// 	quantity: 12,
-// 	revenue: function() {
-// 		return this.price * this.quantity;
-// 	}
-// }
-
-// var nike = {
-// 	model: "mercurial",
-// 	price: 95,
-// 	quantity: 10,
-// 	revenue: function() {
-// 		return this.price * this.quantity;
-// 	}
-// }
-
-// var puma = {
-// 	model: "king",
-// 	price: 80,
-// 	quantity: 15,
-// 	revenue: function() {
-// 		return this.price * this.quantity;
-// 	}
-// }
-
-// var shoes = [adidas, nike, puma];
-
-// for (i = 0; i < shoes.length; i++) {
-// 	console.log(shoes[i].revenue());
-// }
-
-var arrayShoes = [];
-
-function Shoes(model, price, quantity) {
+// creating one object with 4 properties using constructor notation
+// pushing all new Tees to allTees array
+function Tees(model, sizes, price, image) {
 	this.model = model,
+	this.sizes = sizes,
 	this.price = price,
-	this.quantity = quantity,
-	this.revenue = function() {
-		return (this.price * this.quantity);
-	}
-	arrayShoes.push(this);
+	this.image = image,
+	allTees.push(this) // pushing new Tees to allTees array
 }
 
-var adidas = new Shoes("predator", 90, 12);
-var nike = new Shoes("mercurial", 95, 10);
-var puma = new Shoes("king", 80, 15);
+// creating nine objects
+var shirt1 = new Tees("shirt1", "Small, Medium", 24.95, "images/tshirt.png");
+var shirt2 = new Tees("shirt2", "Small, Medium", 19.95, "images/tshirt.png");
+var shirt3 = new Tees("shirt3", "Small, Medium", 30, "images/tshirt.png");
+var shirt4 = new Tees("shirt4", "Small, Medium", 16.95, "images/tshirt.png");
+var shirt5 = new Tees("shirt5", "Small", 24.95, "images/tshirt.png");
+var shirt6 = new Tees("shirt6", "Medium", 19.95, "images/tshirt.png");
+var shirt7 = new Tees("shirt7", "Small, Medium", 24.95, "images/tshirt.png");
+var shirt8 = new Tees("shirt8", "Small, Medium", 16.95, "images/tshirt.png");
+var shirt9 = new Tees("shirt9", "Medium", 19.95, "images/tshirt.png");
 
-for (i = 0; i < arrayShoes.length; i++) {
-	console.log(arrayShoes[i].revenue());
+
+for (i = 0; i < allTees.length; i++) {
+	var bigDiv = document.createElement("div"),
+		smallDiv = document.createElement("div"),
+		image = document.createElement("img"),
+		model = document.createElement("h3"),
+		size = document.createElement("h4"),
+		price = document.createElement("h4"),
+		button = document.createElement("button");
+
+	// 
+	image.src = allTees[i].image;
+	model.innerHTML = allTees[i].model;
+	size.innerHTML = "Size: " + allTees[i].sizes;
+	price.innerHTML = "Price: " + allTees[i].price;
+	button.innerHTML = "Buy Now!";
+
+	// 
+	bigDiv.className = "col-md-4 bigDiv";
+	button.className = "btn btn-success";
+
+	// appending to smallDiv and bigDiv
+	smallDiv.appendChild(image);
+	bigDiv.appendChild(smallDiv);
+	bigDiv.appendChild(model);
+	bigDiv.appendChild(size);
+	bigDiv.appendChild(price);
+	bigDiv.appendChild(button);
+
+	// appending bigDiv to products div
+	document.getElementById("products").appendChild(bigDiv);
 }
+
+
 
 
 
