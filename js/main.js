@@ -17,12 +17,12 @@ var shirt2 = new Tees("Everlane", "Small, Medium", 19.95, "images/tshirt.png");
 var shirt3 = new Tees("Soulland", "Small, Medium", 30, "images/tshirt.png");
 var shirt4 = new Tees("APC", "Small, Medium", 16.95, "images/tshirt.png");
 var shirt5 = new Tees("Ad-lib", "Small", 24.95, "images/tshirt.png");
-var shirt6 = new Tees("Polo", "Medium", 19.95, "images/tshirt.png");
+var shirt6 = new Tees("GAP", "Medium", 19.95, "images/tshirt.png");
 var shirt7 = new Tees("Zara", "Small, Medium", 24.95, "images/tshirt.png");
 var shirt8 = new Tees("Adidas Originals", "Small, Medium", 16.95, "images/tshirt.png");
 var shirt9 = new Tees("Levi's", "Medium", 19.95, "images/tshirt.png");
 
-
+// iterating through allTees array to show in DOM
 for (i = 0; i < allTees.length; i++) {
 	var bigDiv = document.createElement("div"),
 		smallDiv = document.createElement("div"),
